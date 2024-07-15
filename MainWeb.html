@@ -1,0 +1,184 @@
+<html>
+<head>
+<style>
+body {
+background-color: #f5f5f5;
+font-family: Arial, sans-serif;
+}
+
+.container {
+width: 400px;
+padding: 20px;
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+margin: 50px auto;
+}
+
+.logo {
+width: 100px;
+height: 30px;
+margin-bottom: 20px;
+}
+
+.input-field {
+display: block;
+width: 100%;
+height: 44px;
+margin-bottom: 20px;
+padding: 0 10px;
+box-sizing: border-box;
+border: 1px solid rgba(0, 0, 0, 0.14);
+border-radius: 2px;
+font-size: 16px;
+line-height: 44px;
+color: rgba(0, 0, 0, 0.87);
+background-color: #fafafa;
+}
+
+.input-field:focus {
+outline: none;
+box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+display: block;
+width: 100%;
+height: 48px;
+margin-bottom: 20px;
+padding: 0;
+border: none;
+border-radius: 2px;
+font-size: 16px;
+line-height: 48px;
+color: #fff;
+background-color: #4285f4;
+cursor: pointer;
+}
+
+.button:hover {
+background-color: #357ae8;
+}
+
+.button:focus {
+outline: none;
+}
+
+.footer {
+text-align: center;
+margin-top: 20px;
+}
+
+.footer a {
+color: #4285f4;
+text-decoration: none;
+}
+
+.error-message {
+color: red;
+font-size: 12px;
+margin-top: 5px;
+display: none;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.settings {
+position: absolute;
+top: 10px;
+right: 20px;
+font-size: 24px;
+color: #999;
+cursor: pointer;
+}
+
+.update-log {
+margin-top: 20px;
+padding: 10px;
+background-color: #f5f5f5;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.update-log h3 {
+margin-top: 0;
+}
+
+.update-log ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.update-log li {
+margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<img src="https://via.placeholder.com/100x30.png?text=Logo" class="logo" alt="Logo">
+<h2>Sign in to continue</h2>
+<form>
+<div class="form-group">
+<label for="email">Email or phone</label>
+<input type="email" id="email" name="email" class="input-field" placeholder="Email or phone" required>
+<span class="error-message" id="email-error">Email or phone is required</span>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" id="password" name="password" class="input-field" placeholder="Password" required>
+<span class="error-message" id="password-error">Password is required</span>
+</div>
+<button type="submit" class="button">Next</button>
+</form>
+<div class="settings">⚙</div>
+<div class="update-log">
+<h3>Update Log</h3>
+<ul>
+<li>Version 0.3: Removed options</li>
+</ul>
+</div>
+</div>
+<script>
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const emailError = document.getElementById("email-error");
+const passwordError = document.getElementById("password-error");
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", event => {
+event.preventDefault();
+
+let isFormValid = true;
+
+if (!emailInput.value.trim()) {
+isFormValid = false;
+emailError.style.display = "block";
+} else {
+emailError.style.display = "none";
+}
+
+if (!passwordInput.value.trim()) {
+isFormValid = false;
+passwordError.style.display = "block";
+} else {
+passwordError.style.display = "none";
+}
+
+if (isFormValid) {
+// Form is valid, submit the form
+alert("Form is valid, submit the form");
+}
+});
+
+// Add event listener to the settings button
+document.querySelector(".settings").addEventListener("click", () => {
+alert("Settings button clicked");
+});
+</script>
+</body>
+  </html>
